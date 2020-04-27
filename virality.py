@@ -40,17 +40,9 @@ import math
 # Create a list of tuples sorted by index 1 i.e. value field     
 listofTuples = sorted(data.items() , reverse=True, key=lambda x: x[1])
 # Iterate over the sorted sequence
-avg=0
-sum3=0
-# print(listofTuples[0][1])
 for elem in listofTuples[:50] :
     print(elem[0] , " ::" , elem[1] )
-    avg+=elem[1]
-    # sum3+=math.exp(elem[1]-817.6)
-# avg=avg/292297
-print ("This is avg "+str(avg))
-# x=math.exp(2962-817.6) + math.exp(1726-817.6)
-# print("Virality is "+str(x/sum3))
+
 
 file = open ("news_headline.txt",'r')
 test_headline = file.readline()
