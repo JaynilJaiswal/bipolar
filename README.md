@@ -66,6 +66,6 @@ Probability of headline = (Mean of individual scores) + (Standard deviation of i
 - **Time factor need to be included in calculating score.**
 - Better scraping methods need to be introduced.
 
-## Method for scraping healines
+## Method for scraping headlines
 
 Please refer to code of ``scrape.py`` file.
