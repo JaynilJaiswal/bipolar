@@ -36,16 +36,36 @@ pip install beautifulsoup4 lxml requests nltk
 ## Running the tests
 To test the program, write the headline you wish to find viralty in file ```news_headline.txt```,then run the ``virality.py`` file.
 
-### Method of virality calculation
+## Method of virality calculation
 
 Viralty of any news depends on the content of the news. Most of the important words are in the form of nouns. So I collect the nouns from the news headlines that I scraped and form an unigram based on count out of it. Using the unigram I find the individual probability of a noun going viral relative to the word most occured. The count of noun clearly indicates that it has appeared in many news headlines & hence is a trending topic.
 
 Generally a news related to trending topics tend to go viral fast.
 ```
-Probability of news having individual noun going viral = (Count_of_that_noun  - 1)/(The_max_count)
+Score of news having individual noun going viral = (Count_of_that_noun  - 1)/(The_max_count)
 ```
-Suppose a noun appearing only 1 time then it's not likely to get viral, hence it's probability is zero while on the contrary the noun appearing maximum times is more likely to get viral.
+Now the news headline will probably contain more than one noun, So for now I have calculated the probabilty using
+```
+Probability of headline = (Mean of individual scores) + (Standard deviation of individual scores)
+```
 
-### Method for scraping healines
+### Advantages:
+- It's inclined towards giving more score containing words with more importance.
+- It penalizes the headline for using lesser improtant word.
+- Suppose a noun appearing only 1 time then it's not likely to get viral, hence it's probability is zero while on the contrary the noun appearing maximum times is more likely to get viral.
+- Importance of words is correctly depicted as first 5 most important words are:
+    * India
+    * PM
+    * US
+    * **coronavirus**
+    * Delhi
+ 
+
+### Shortcomings/Improvements to be made:
+- The data collected need to improved.
+- **Time factor need to be included in calculating score.**
+- Better scraping methods need to be introduced.
+
+## Method for scraping healines
 
 Please refer to code of ``scrape.py`` file.
